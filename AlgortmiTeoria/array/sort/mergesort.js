@@ -3,9 +3,9 @@ function merge(left, right) {
     while (left.length && right.length) {
         // Insert the smallest item into sortedArr
         if (left[0] < right[0]) {
-        sortedArr.push(left.shift())
+            sortedArr.push(left.shift())
         } else {
-        sortedArr.push(right.shift())
+            sortedArr.push(right.shift())
         }
     }
     // Use spread operators to create a new array, combining the three arrays
@@ -23,5 +23,5 @@ function mergeSort(arr) {
     return merge(left, right)
 }
 
-//Test algoritm :)
+//Test algorithm :)
 console.log(mergeSort([3, 5, 8, 5, 99, 1])) // [1, 3, 5, 5, 8, 99]
