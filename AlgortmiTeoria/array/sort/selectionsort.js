@@ -1,3 +1,18 @@
+/*
+Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
+visualizzazione: https://en.wikipedia.org/wiki/Selection_sort#/media/File:Selection-Sort-Animation.gif
+
+Questo algoritmo funziona come segue
+- determino il minimo dell'array
+- lo scambio con la prima posizione dell'array 
+- eseguo una seconda passata dell'algorimo con un sotto array che va da 1 a n
+
+Output
+l'array ordinato
+
+Complessita' nel caso peggiore: O(n^2)
+*/
+
 function selectionSort(inputArr) {
     let n = inputArr.length;
 
@@ -19,8 +34,6 @@ function selectionSort(inputArr) {
     return inputArr;
 }
 
-// This is our unsorted array
+// Test sort
 let arr = [234, 43, 55, 63, 5, 6, 235, 547];
-
-// Now pass this array to the selectionSort() function
-selectionSort(arr);
+console.log(selectionSort(arr));

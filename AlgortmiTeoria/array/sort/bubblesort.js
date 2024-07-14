@@ -11,7 +11,7 @@ Questo algoritmo funziona come segue
 - l'algoritmo termina quando si verifica una "passata" senza nessuno scambio
 
 Output
-l'array ordinato, come side effect
+l'array ordinato
 
 Complessita' nel caso peggiore: O(n^2)
 */
@@ -38,6 +38,5 @@ function bblSort(arr) {
 }
 
 // Test sort
-let arr = [234, 43, 55, 63, 5, 6, 235, 547];
-bblSort(arr);
-console.log(arr);
+const arr = [234, 43, 55, 63, 5, 6, 235, 547];
+console.log(bblSort(arr));

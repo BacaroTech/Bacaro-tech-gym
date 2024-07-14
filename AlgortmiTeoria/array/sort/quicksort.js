@@ -1,3 +1,18 @@
+/*
+Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
+visualizzazione: https://en.wikipedia.org/wiki/Quicksort#/media/File:Sorting_quicksort_anim.gif
+
+Questo algoritmo funziona come segue
+- si decide una regola che determina se un elemento sia il "pivot" o meno(si solito è o il primo o ultimo elemento)
+- si posiziona al centro dell'array il pivot
+- si esegue in modo ricorsivo questa procedura per la parte a sx del pivot che a dx del pivot
+
+Output
+l'array ordinato, come side effect
+
+Complessita' nel caso peggiore: O(n^2)
+*/
+
 function partition(arr, low, high) { 
     let pivot = arr[high]; 
     let i = low - 1; 
@@ -17,15 +32,14 @@ function partition(arr, low, high) {
 } 
   
 function quickSort(arr, low, high) { 
-    if (low >= high) return; 
+    if (low >= high) return ; 
     let pi = partition(arr, low, high); 
   
     quickSort(arr, low, pi - 1); 
     quickSort(arr, pi + 1, high); 
 } 
   
-let arr = [10, 80, 30, 90, 40]; 
-console.log("Original array: " + arr); 
-  
-quickSort(arr, 0, arr.length - 1); 
-console.log("Sorted array: " + arr);
+// Test sort
+const arr = [10, 80, 30, 90, 40];   
+quickSort(arr, 0, arr.length - 1)
+console.log(arr);

@@ -12,42 +12,41 @@ Questo algoritmo funziona come segue
 - utilizzando i prefissi calcolati al passo precedente viene ordinato l'array di partenza
 
 Output
-l'array ordinato, tramite side effect
+l'array ordinato
 
 Complessita' nel caso peggiore: O(n + k)
 */
 
-function countSort(inputArray) {
-    const N = inputArray.length;
- 
-    // Finding the maximum element of inputArray
-    let M = 0;
-    for (let i = 0; i < N; i++) {
-        M = Math.max(M, inputArray[i]);
+function countingSort(arr, min, max)
+  {
+    let i = min,
+        j = 0,
+        len = arr.length,
+        count = [];
+
+    for (i; i <= max; i++)
+    {
+        count[i] = 0;
     }
- 
-    // Initializing countArray with 0
-    const countArray = new Array(M + 1).fill(0);
- 
-    // Mapping each element of inputArray as an index of countArray
-    for (let i = 0; i < N; i++) {
-        countArray[inputArray[i]]++;
+
+    for (i = 0; i < len; i++)
+    {
+        count[arr[i]] += 1;
     }
- 
-    // Calculating prefix sum at every index of countArray
-    for (let i = 1; i <= M; i++) {
-        countArray[i] += countArray[i - 1];
+
+    for (i = min; i <= max; i++)
+    {
+        while (count[i] > 0)
+        {
+            arr[j] = i;
+            j++;
+            count[i]--;
+        }
     }
- 
-    // Changing inputArray from countArray
-    for (let i = N - 1; i >= 0; i--) {
-        inputArray[countArray[inputArray[i]] - 1] = inputArray[i];
-        inputArray[inputArray[i]]--;
-    }
- 
-    return inputArray;
+    return arr;
 }
+
  
 // Test sort
 const inputArray = [4, 3, 12, 1, 5, 5, 3, 9];
-console.log(countSort(inputArray););
+console.log(countingSort(inputArray));

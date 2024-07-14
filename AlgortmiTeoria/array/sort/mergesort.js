@@ -1,3 +1,17 @@
+/*
+Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
+visualizzazione: https://it.wikipedia.org/wiki/Merge_sort#/media/File:Merge_sort_animation2.gif
+
+Questo algoritmo funziona come segue
+- si divide l'array in singoli micro array di 1 elemento ciascuni(dividendo sempre a meta)
+- si ricompone l'array partendo dai singoli elementi e ordinadnoli  
+
+Output
+l'array ordinato
+
+Complessita' nel caso peggiore: O(nlogn)
+*/
+
 function merge(left, right) {
     let sortedArr = [] // the sorted items will go here
     while (left.length && right.length) {
@@ -12,7 +26,6 @@ function merge(left, right) {
     return [...sortedArr, ...left, ...right]
 }
 
-
 function mergeSort(arr) {
 // Base case
     if (arr.length <= 1) return arr
@@ -23,5 +36,6 @@ function mergeSort(arr) {
     return merge(left, right)
 }
 
-//Test algorithm :)
-console.log(mergeSort([3, 5, 8, 5, 99, 1])) // [1, 3, 5, 5, 8, 99]
+//Test sort
+const arr = [3, 5, 8, 5, 99, 1];
+console.log(mergeSort(arr));

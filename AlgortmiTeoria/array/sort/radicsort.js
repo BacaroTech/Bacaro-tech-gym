@@ -23,6 +23,10 @@ Complessita' nel caso peggiore: O(m(n + k)), dove
 - k sono e' il massimo dell'intervallo
 */
 
+function getDigit(num, place) {
+    return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10
+  }
+
 function digitCount(num) {
     if (num === 0) return 1
     return Math.floor(Math.log10(Math.abs(num))) + 1
@@ -50,4 +54,6 @@ function radixSort(arrOfNums) {
     return arrOfNums
 }
 
-console.log(radixSort([1, 33, 444, 0, 3, 2])) // [0, 1, 2, 3, 33, 444]
+// Test sort
+const arr = [1, 33, 444, 0, 3, 2]
+console.log(radixSort(arr)) 

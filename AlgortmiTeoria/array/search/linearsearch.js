@@ -19,5 +19,6 @@ function linearSearch(array, num) {
     return -1;
 }
 
-linearSearch(numbers, 8); // -> 4
-linearSearch(numbers, 28); // -> -1 
+let numbers = [1, 3, 5, 7, 8, 9];
+console.log(linearSearch(numbers, 8)); // -> 4
+console.log(linearSearch(numbers, 28)); // -> -1 
