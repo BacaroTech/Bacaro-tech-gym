@@ -8,7 +8,11 @@ All'interno di questa repository troverete:
 - **CodingLeetCode**: Questa cartella contiene le soluzioni ai diversi problemi di codice che affrontiamo durante le serate.
 - **SQLLeetCode**: Questa cartella contiene le soluzioni ai diversi problemi di SQL che affrontiamo durante le serate.
 
-## Contatti
-Per qualsiasi domanda o suggerimento, non esitate a contattarci attraverso i canali ufficiali di BacaroTech. Siamo sempre disponibili per discutere idee e collaborare su nuovi progetti.
+## Social e Contatti
+- 🌳 [Link Tree Homemade](https://bacarotech.github.io/)
+- 📷 [Instagram](https://www.instagram.com/bacarotech23/)
+- 🎵 [TikTok](https://www.tiktok.com/@bacarotech)
+- 🎥 [Youtube](https://www.youtube.com/@Bacarotech)
+- 📫 Email: **bacarotech@gmail.com**
 
 Buon coding e buon divertimento con BacaroTech!
