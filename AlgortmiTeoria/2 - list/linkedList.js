@@ -1,30 +1,32 @@
 /*
-Le liste semplici sono strutture dati che servono per collezionare elementi di qualsisi natura
-A differenza degli array hanno una dimensione variabile è questo le rende molto lastici da usare
-Purtroppo però soffrono di una fragilità intrinseca, ovvero la testa
-Inoltre, a differenza degli array non è possibile ottenere un lemento in una certa posizione specifica
-come ben sappiamo è possibile fare tramite l'operatore di assegnamento, ma è necessario scorrere
-tutta la lista per trovare il valore a una certa posizione
+/*
+Le liste semplici sono strutture dati utilizzate per collezionare elementi di qualsiasi tipo.  
+A differenza degli array, hanno una dimensione variabile, il che le rende molto flessibili da usare.  
+Tuttavia, soffrono di una fragilità intrinseca, ovvero la dipendenza dalla testa della lista.  
 
-Una lista ha 2 componetni
-- nodi che la compongo, ed essi hanno 2 valori
-    - data => valore del nodo
-    - next => valore successivo puntato, nel caso sia l'ultimo nodo questo avrà come valore null    
-- testa, essa ha un nodo che rappresenta quello di partenza 
+Inoltre, a differenza degli array, non è possibile accedere direttamente a un elemento in una posizione specifica.  
+Non possiamo usare un operatore di indicizzazione, ma dobbiamo scorrere l'intera lista per trovare il valore nella posizione desiderata.  
 
-Problema di fragilità
-Nodi 2->5
-Testa 2
+Una lista semplice è composta da due elementi principali:  
+- **Nodi**, che contengono due attributi:  
+  - `data`: il valore del nodo.  
+  - `next`: il riferimento al nodo successivo. Se il nodo è l'ultimo della lista, il valore di `next` sarà `null`.  
+- **Testa**: il nodo iniziale della lista, che rappresenta il punto di partenza.  
 
-Se noi scorriamo la lista ci troviamo che 
-Nodi null
-Testa null
+Problema della fragilità della testa
+Consideriamo il seguente esempio:  
+- Nodi: 2 → 5  
+- Testa: 2  
 
-Questo avviene perchè la variabile che contiene il valore di partenza è stata modificata
-fino al raggiungimento del valore null, nodo finale che rappresenza la lista vuota
+Se scorriamo la lista per cercare un valore, possiamo arrivare a questa situazione:  
+- Nodi: `null`  
+- Testa: `null`  
 
-Per risolvere questo problema basta copiarsi la testa della lista e scorrere la struttura dati
-tramite questo clone usa e getta
+Questo accade perché la variabile che contiene la testa della lista viene modificata man mano che avanziamo verso il nodo successivo, fino a raggiungere `null`, che rappresenta la fine della lista (ossia una lista vuota).  
+
+Soluzione al problema
+Per evitare questo problema, è sufficiente creare una copia della testa della lista e scorrere la struttura dati utilizzando questa copia temporanea.  
+In questo modo, la testa originale rimane intatta e possiamo continuare a utilizzarla senza compromettere l'integrità della lista.  
 */
 
 //struttura dati che rappresenta il singolo nodo

@@ -2,17 +2,17 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://it.wikipedia.org/wiki/Radix_sort#/media/File:Radix.JPG
 
-Questo algoritmo ha una precondizione
-Le cifre dei singoli elementi si devono trovare in un intervallo tra 0 e K
+Questo algoritmo ha una precondizione:
+Le cifre dei singoli elementi devono trovarsi in un intervallo tra 0 e K.
 
-Questo algoritmo funziona come segue
-- vengono presi i numeri che compongono l'array
-- ognugno di essi viene ordinato dalla cifra meno significativa a quella piu' significativa
-esempio: 142, 456, 228
-- passo 1: ordino 1,4,2 -> 1,2,4 
-- passo 2: ordino 4,5,2 -> 2,4,5
-- passo 3: ordino 2,6,8 -> 2,6,8
-array finale: 142, 228, 456
+Funzionamento:
+1. Vengono presi i numeri che compongono l'array.
+2. Ogni numero viene ordinato dalla cifra meno significativa a quella più significativa.
+   Esempio: 142, 456, 228.
+3. Passo 1: ordino le cifre di 142 -> 1, 4, 2 diventa 1, 2, 4.
+4. Passo 2: ordino le cifre di 456 -> 4, 5, 2 diventa 2, 4, 5.
+5. Passo 3: ordino le cifre di 228 -> 2, 6, 8 diventa 2, 6, 8.
+6. L'array finale ordinato sarà: 142, 228, 456.
 
 Output
 l'array ordinato

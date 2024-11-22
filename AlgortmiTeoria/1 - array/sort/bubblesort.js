@@ -2,13 +2,15 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://en.wikipedia.org/wiki/Bubble_sort#/media/File:Bubble-sort-example-300px.gif
 
-Questo algoritmo funziona come segue
-- prende la prima coppia di elementi e ci sono 2 casistiche
-    - nel caso in cui il primo elemento sia minore del secondo la coppia rimane cosi' com'e' => 1,3 -> 1,3
-    - nel caso opposto, la coppia viene scambiata => 3,2 -> 2,3
-- questa azione di scambio viene fatta per ogni elemento
-- un'insieme di scambi che interessano tutti gli elmenti viene chiamata "passata"
-- l'algoritmo termina quando si verifica una "passata" senza nessuno scambio
+Questo algoritmo funziona seguendo questi passaggi:  
+1. Si considerano due elementi consecutivi (una coppia) dell'array. Ci sono due casi:  
+   - Se il primo elemento è **minore o uguale** al secondo, la coppia rimane invariata.  
+     Esempio: \( 1,3 \to 1,3 \)  
+   - Se il primo elemento è **maggiore** del secondo, i due elementi vengono scambiati.  
+     Esempio: \( 3,2 \to 2,3 \)  
+2. Questa operazione di confronto e, se necessario, di scambio viene effettuata per ogni coppia di elementi nell'array.  
+3. Un insieme completo di confronti e scambi che coinvolge tutti gli elementi dell'array si chiama **passata**.  
+4. L'algoritmo termina quando una passata non richiede alcuno scambio, segnalando che l'array è ordinato.  
 
 Output
 l'array ordinato

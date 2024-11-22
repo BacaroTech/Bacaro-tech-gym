@@ -2,12 +2,13 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://it.wikipedia.org/wiki/Insertion_sort#/media/File:Sorting_insertion_sort_anim.gif
 
-Questo algoritmo funziona come segue
-- si assume che il primo elemento sia ordianto
-- da secondo elemento, compreso, si confronta esso con tutti gli elementi ordinati
-    - se l'elemento è maggiore del massimo ordinato allora si aggiunge l'elemento in fine
-    - se l'elemento si dovrebbe trovare "in mezzo" ad altri elementi allora si fa spazio facendo uno shift delle posizioni
-- si ripete la procedura con un almento ordinato in più 
+Questo algoritmo funziona come segue:
+1. Si assume che il primo elemento dell'array sia già ordinato.
+2. A partire dal secondo elemento (incluso), si confronta l'elemento corrente con quelli già ordinati:
+    - Se l'elemento è maggiore del massimo ordinato, viene aggiunto alla fine della sezione ordinata.
+    - Se l'elemento deve trovarsi "in mezzo" agli altri elementi ordinati, si crea spazio facendo uno shift
+      delle posizioni degli elementi successivi.
+3. La procedura viene ripetuta, espandendo la parte ordinata dell'array di un elemento alla volta.
 
 Output
 l'array ordinato

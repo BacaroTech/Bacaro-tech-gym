@@ -2,10 +2,10 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://en.wikipedia.org/wiki/Quicksort#/media/File:Sorting_quicksort_anim.gif
 
-Questo algoritmo funziona come segue
-- si decide una regola che determina se un elemento sia il "pivot" o meno(si solito è o il primo o ultimo elemento)
-- si posiziona al centro dell'array il pivot
-- si esegue in modo ricorsivo questa procedura per la parte a sx del pivot che a dx del pivot
+Questo algoritmo funziona come segue:
+1. Si sceglie una regola per determinare quale elemento sia il "pivot" (di solito è il primo o l'ultimo elemento dell'array).
+2. Il pivot viene posizionato al centro dell'array.
+3. La procedura viene eseguita ricorsivamente sulla parte dell'array a sinistra del pivot e su quella a destra del pivot.
 
 Output
 l'array ordinato, come side effect

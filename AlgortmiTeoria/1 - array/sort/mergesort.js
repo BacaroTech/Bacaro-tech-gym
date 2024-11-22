@@ -2,9 +2,11 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://it.wikipedia.org/wiki/Merge_sort#/media/File:Merge_sort_animation2.gif
 
-Questo algoritmo funziona come segue
-- si divide l'array in singoli micro array di 1 elemento ciascuni(dividendo sempre a meta)
-- si ricompone l'array partendo dai singoli elementi e ordinadnoli  
+Questo algoritmo funziona come segue:
+1. L'array viene suddiviso in "micro-array" contenenti ciascuno un singolo elemento, 
+    continuando a dividerlo a metà ricorsivamente.
+2. Una volta raggiunti i micro-array, si procede alla ricomposizione ordinata:
+    - I micro-array vengono uniti e ordinati progressivamente, fino a ricostruire l'intero
 
 Output
 l'array ordinato

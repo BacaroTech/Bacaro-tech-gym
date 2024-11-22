@@ -2,10 +2,10 @@
 Questo algoritmo permette di mettere in ordine un array in base agli elementi che lo compongono
 visualizzazione: https://en.wikipedia.org/wiki/Selection_sort#/media/File:Selection-Sort-Animation.gif
 
-Questo algoritmo funziona come segue
-- determino il minimo dell'array
-- lo scambio con la prima posizione dell'array 
-- eseguo una seconda passata dell'algorimo con un sotto array che va da 1 a n
+Questo algoritmo funziona come segue:
+1. Viene determinato il minimo nell'array.
+2. Il minimo viene scambiato con il primo elemento dell'array.
+3. Si esegue una seconda passata dell'algoritmo su un sotto-array che va dalla posizione 1 alla posizione n.
 
 Output
 l'array ordinato
