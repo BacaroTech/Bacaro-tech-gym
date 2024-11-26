@@ -1,24 +1,30 @@
 /*
-La classe `MyMap` implementa una mappa (o dizionario) in JavaScript che memorizza coppie chiave-valore.
+La classe `MyMap` implementa una struttura dati di tipo mappa (o dizionario) in JavaScript, progettata 
+per memorizzare coppie chiave-valore.  Grazie a una funzione di hash, la mappa garantisce un accesso rapido ai dati, 
+rendendola ideale per gestire associazioni chiave-valore.
 
-La struttura dati sottostante è un array che utilizza una funzione di hash per determinare l'indice in cui
-memorizzare i dati. La funzione di hash converte una chiave in un indice e i dati vengono gestiti in un array
-di liste (chaining) per risolvere le collisioni.
+STRUTTURA DATI:
+La mappa utilizza un array come struttura sottostante per archiviare i dati. 
+Una funzione di hash converte ogni chiave in un indice dell'array. Per risolvere eventuali 
+collisioni (quando due chiavi producono lo stesso indice), viene implementato il chaining, ossia 
+ogni elemento dell'array è una lista (o array) di coppie chiave-valore.
 
-Le operazioni principali supportate dalla mappa includono:
+OPERAZIONI PRINCIPALI:
+- set(key, value): Inserisce una nuova coppia chiave-valore nella mappa. Se la chiave esiste già, aggiorna il valore associato.
+- get(key): Restituisce il valore associato a una chiave specifica. Se la chiave non è presente, restituisce `undefined`.
+- has(key): Verifica se una chiave esiste nella mappa e restituisce un valore booleano (`true` o `false`).
+- delete(key): Rimuove una coppia chiave-valore dalla mappa. Restituisce `true` 
+se l'elemento è stato eliminato, altrimenti `false`.
+- keys(): Restituisce un array contenente tutte le chiavi presenti nella mappa.
+- values(): Restituisce un array contenente tutti i valori presenti nella mappa.
+- size(): Restituisce il numero totale di coppie chiave-valore attualmente presenti nella mappa.
+- clear(): Svuota completamente la mappa, rimuovendo tutte le coppie chiave-valore.
 
-- set(key, value): Inserisce una nuova coppia chiave-valore nella mappa.
-- get(key): Restituisce il valore associato a una chiave specifica.
-- has(key): Verifica se una chiave esiste nella mappa.
-- delete(key): Rimuove una coppia chiave-valore dalla mappa.
-- keys(): Restituisce tutte le chiavi presenti nella mappa.
-- values(): Restituisce tutti i valori presenti nella mappa.
-- size(): Restituisce la dimensione (numero di coppie) della mappa.
-- clear(): Svuota la mappa.
-
-La mappa è progettata per essere dinamica e supporta l'inserimento, la ricerca e la rimozione efficienti delle coppie
-chiave-valore. Grazie alla funzione di hash e al chaining, le operazioni principali sono generalmente eseguite in
-tempo costante, O(1), a meno che non si verifichino collisioni frequenti.
+PRESTAZIONI:
+Grazie alla funzione di hash e al chaining, le operazioni principali (`set`, `get`, `has`, `delete`) 
+sono generalmente eseguite in tempo O(1), rendendo la mappa particolarmente efficiente. 
+Tuttavia, in caso di collisioni frequenti, il tempo di esecuzione può degradare a O(n), 
+dove n è il numero di coppie chiave-valore nella mappa.
 */
 
 class MyMap {

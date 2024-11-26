@@ -1,17 +1,26 @@
 /*
-/**
-Uno stack è una struttura dati che segue la logica "Last In, First Out" (LIFO), 
-ovvero l'ultimo elemento inserito è il primo ad essere rimosso.
+La classe `Stack` implementa una struttura dati di tipo pila, basata sul principio Last In, First Out (LIFO), 
+in cui l'ultimo elemento aggiunto è il primo a essere rimosso. Questo la rende ideale per scenari in cui è 
+necessario gestire dati seguendo un ordine inverso rispetto all'inserimento.
 
-Funzionamento:
-1. Gli elementi vengono aggiunti allo stack tramite l'operazione di "push".
-2. Gli elementi vengono rimossi dallo stack tramite l'operazione di "pop".
-3. È possibile accedere al valore dell'elemento in cima allo stack tramite l'operazione "peek" senza rimuoverlo.
-4. L'operazione "isEmpty" permette di verificare se lo stack è vuoto.
-5. La procedura "printStack" permette di stampare il contenuto partendo dalla testa
+STRUTTURA DATI:
+Uno stack è costituito da una collezione di elementi disposti in ordine lineare. 
+Le operazioni di inserimento (push) e rimozione (pop) avvengono sempre all'estremità superiore della pila, 
+detta cima dello stack. Gli elementi al di sotto della cima rimangono temporaneamente inaccessibili fino 
+alla rimozione di quelli superiori.
 
-Un esempio di uso comune di uno stack è nella gestione delle chiamate 
-di funzione (call stack) nei linguaggi di programmazione.
+OPERAZIONI PRINCIPALI:
+- push(element): Inserisce un elemento in cima allo stack.
+- pop(): Rimuove e restituisce l'elemento in cima allo stack. Restituisce `undefined` se lo stack è vuoto.
+- peek(): Restituisce il valore dell'elemento in cima allo stack senza rimuoverlo.
+- isEmpty(): Verifica se lo stack è vuoto. Restituisce `true` se non contiene elementi, altrimenti `false`.
+- size(): Restituisce il numero totale di elementi presenti nello stack.
+- printStack(): Stampa il contenuto dello stack, partendo dall'elemento in cima fino alla base.
+
+PRESTAZIONI:
+Le operazioni principali dello stack (`push`, `pop`, `peek`, `isEmpty`) hanno complessità temporale costante, O(1), 
+poiché non è necessario spostare o ridistribuire gli elementi. 
+Questo lo rende una scelta ottimale per scenari che richiedono frequenti inserimenti e rimozioni in ordine LIFO.
 */
 
 class Stack {

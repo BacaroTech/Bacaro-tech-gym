@@ -1,32 +1,41 @@
 /*
-/*
-Le liste semplici sono strutture dati utilizzate per collezionare elementi di qualsiasi tipo.  
-A differenza degli array, hanno una dimensione variabile, il che le rende molto flessibili da usare.  
-Tuttavia, soffrono di una fragilità intrinseca, ovvero la dipendenza dalla testa della lista.  
+La classe `ListaSemplice` implementa una struttura dati di tipo lista semplice, una sequenza di nodi collegati che 
+memorizzano dati in modo dinamico. A differenza degli array, le liste semplici non hanno una dimensione fissa e permettono 
+di aggiungere o rimuovere elementi senza dover ridimensionare l'intera struttura. Tuttavia, l'accesso agli elementi 
+avviene in modo sequenziale, poiché non è possibile accedere direttamente a una posizione specifica.
 
-Inoltre, a differenza degli array, non è possibile accedere direttamente a un elemento in una posizione specifica.  
-Non possiamo usare un operatore di indicizzazione, ma dobbiamo scorrere l'intera lista per trovare il valore nella posizione desiderata.  
+STRUTTURA DATI:
+Una lista semplice è composta da una sequenza di nodi. Ogni nodo ha due attributi:
+- `data`: il valore contenuto nel nodo.
+- `next`: il riferimento al nodo successivo nella lista. Se il nodo è l'ultimo, il valore di `next` sarà `null`.
 
-Una lista semplice è composta da due elementi principali:  
-- **Nodi**, che contengono due attributi:  
-  - `data`: il valore del nodo.  
-  - `next`: il riferimento al nodo successivo. Se il nodo è l'ultimo della lista, il valore di `next` sarà `null`.  
-- **Testa**: il nodo iniziale della lista, che rappresenta il punto di partenza.  
+La lista è gestita tramite un nodo testa (head), che è il primo nodo della lista. La testa fornisce l'accesso alla struttura 
+e viene aggiornata durante l'inserimento o la rimozione di elementi.
 
-Problema della fragilità della testa
-Consideriamo il seguente esempio:  
-- Nodi: 2 → 5  
-- Testa: 2  
+PROBLEMA DELLA FRAGILITÀ DELLA TESTA:
+La fragilità della testa deriva dal fatto che, man mano che si scorre la lista, il riferimento alla testa può essere 
+modificato, portando a una perdita del puntamento all'inizio della lista. Ecco un esempio:
+- Lista: `2 → 5`
+- Testa: `2`
 
-Se scorriamo la lista per cercare un valore, possiamo arrivare a questa situazione:  
-- Nodi: `null`  
-- Testa: `null`  
+Se scorriamo la lista per cercare un valore, il puntamento alla testa potrebbe essere perso:
+- Lista: `null`
+- Testa: `null`
 
-Questo accade perché la variabile che contiene la testa della lista viene modificata man mano che avanziamo verso il nodo successivo, fino a raggiungere `null`, che rappresenta la fine della lista (ossia una lista vuota).  
+Per evitare questo problema, è consigliabile utilizzare una copia della testa durante l'iterazione. In questo modo, 
+la testa originale rimane intatta e si evita che il puntamento alla lista venga compromesso.
 
-Soluzione al problema
-Per evitare questo problema, è sufficiente creare una copia della testa della lista e scorrere la struttura dati utilizzando questa copia temporanea.  
-In questo modo, la testa originale rimane intatta e possiamo continuare a utilizzarla senza compromettere l'integrità della lista.  
+OPERAZIONI PRINCIPALI:
+- inserisciInTesta(valore): Aggiunge un nuovo nodo all'inizio della lista.
+- inserisciInCoda(valore): Aggiunge un nuovo nodo alla fine della lista.
+- rimuovi(valore): Rimuove il primo nodo che contiene il valore specificato.
+- cerca(valore): Restituisce il primo nodo che contiene il valore cercato.
+- stampaLista(): Stampa tutti gli elementi della lista, partendo dalla testa.
+
+PRESTAZIONI:
+Le operazioni di inserimento e rimozione, quando avvengono all'inizio della lista, 
+sono efficienti con una complessità di O(1). Tuttavia, l'accesso agli elementi e la ricerca di un valore 
+richiedono di scorrere l'intera lista, il che implica una complessità di O(n).
 */
 
 //struttura dati che rappresenta il singolo nodo
