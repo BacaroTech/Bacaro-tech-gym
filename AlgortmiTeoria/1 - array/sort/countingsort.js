@@ -28,36 +28,39 @@ l'array ordinato
 Complessita' nel caso peggiore: O(n + k)
 */
 
-function countingSort(arr, min, max)
-  {
-    let i = min,
-        j = 0,
-        len = arr.length,
-        count = [];
-
-    for (i; i <= max; i++)
-    {
-        count[i] = 0;
+function countingSort(arr, min, max) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+        throw new Error("Input non valido: deve essere un array non vuoto.");
     }
 
-    for (i = 0; i < len; i++)
-    {
-        count[arr[i]] += 1;
+    // Inizializza l'array di conteggio
+    const count = new Array(max - min + 1).fill(0);
+
+    // Conta le occorrenze di ciascun elemento
+    for (const num of arr) {
+        if (num < min || num > max) {
+            throw new Error(`Valore ${num} fuori dall'intervallo specificato [${min}, ${max}].`);
+        }
+        count[num - min]++;
     }
 
-    for (i = min; i <= max; i++)
-    {
-        while (count[i] > 0)
-        {
-            arr[j] = i;
-            j++;
+    // Ricostruisci l'array ordinato
+    let index = 0;
+    for (let i = 0; i < count.length; i++) {
+        while (count[i] > 0) {
+            arr[index++] = i + min;
             count[i]--;
         }
     }
+
     return arr;
 }
 
- 
 // Test sort
-const inputArray = [4, 3, 12, 1, 5, 5, 3, 9];
-console.log(countingSort(inputArray));
+const arr = [4, 2, 2, 8, 3, 3, 1];
+console.log("Array originale:", arr);
+
+const min = 1, max = 8;
+const sorted = countingSort(arr, min, max);
+
+console.log("Array ordinato:", sorted);

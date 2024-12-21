@@ -55,5 +55,6 @@ function radixSort(arrOfNums) {
 }
 
 // Test sort
-const arr = [1, 33, 444, 0, 3, 2]
-console.log(radixSort(arr)) 
+const arr = [1, 33, 444, 0, 3, 2];
+console.log("pre ordinamento:", arr);
+console.log("post ordinamento:", radixSort(arr));

@@ -206,9 +206,11 @@ bst.insert(7);
 bst.insert(13);
 bst.insert(18);
 
-console.log("In-order Traversal:", bst.inOrderTraversal());
-console.log("Find 7:", bst.find(7)); 
-console.log("Find 20:", bst.find(20)); 
+console.log("Attraversamento in preordine:",bst.inOrderTraversal());
+console.log("Ricerca di valori:");
+console.log("Cerca 7:", bst.find(7)); 
+console.log("Cerca 20:", bst.find(20)); 
 
+console.log("Eliminazione di un nodo (10)");
 bst.remove(10);
-console.log("In-order Traversal after removing 10:", bst.inOrderTraversal());
+console.log("Attraversamento in preordine dopo aver rimosso il 10:",bst.inOrderTraversal());

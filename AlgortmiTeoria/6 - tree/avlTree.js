@@ -16,34 +16,25 @@ PROPRIETÀ DI RICERCA:
 
 TERMINOLOGIA:
 - Nodo: Ogni elemento dell'albero contenente una chiave, una altezza e puntatori ai figli.
-- Radice (Root): Il nodo principale dell'albero.
+- Radice (this.root): Il nodo principale dell'albero.
 - Foglia (Leaf): Nodo senza figli.
 - Sottoalbero (Subtree): Ogni albero formato dai nodi discendenti di un nodo specifico.
 - Altezza del Nodo: La lunghezza del percorso più lungo verso una foglia a partire da quel nodo.
 
 OPERAZIONI PRINCIPALI:
-- inserisci(key):
-  - Inserisce una chiave nell'albero AVL.
-  - Dopo ogni inserimento, l'altezza dei nodi viene aggiornata e, se necessario, vengono eseguite rotazioni per mantenere il bilanciamento.
-- cerca(key):
-  - Determina se una chiave è presente nell'albero AVL.
-  - Naviga efficientemente attraverso l'albero sfruttando la proprietà di ricerca.
-- elimina(key):
-  - Rimuove un nodo specifico, bilanciando l'albero AVL con rotazioni quando necessario.
-- visitaInOrdine():
-  - Attraversa l'albero in ordine crescente.
-- altezza():
-  - Restituisce la profondità massima dell'albero AVL.
+- inserisci(key): Inserisce una chiave nell'albero AVL. Dopo ogni inserimento, l'altezza dei nodi
+viene aggiornata e, se necessario, vengono eseguite rotazioni per mantenere il bilanciamento.
+- cerca(key): Determina se una chiave è presente nell'albero AVL. Naviga efficientemente attraverso 
+l'albero sfruttando la proprietà di ricerca.
+- elimina(key): Rimuove un nodo specifico, bilanciando l'albero AVL con rotazioni quando necessario.
+- visitaInOrdine(): Attraversa l'albero in ordine crescente(pre ordine).
+- getAltezza(): Restituisce la profondità massima dell'albero AVL.
 
 MECCANISMI DI BILANCIAMENTO:
-- Rotazione Sinistra (Left Rotation):
-  - Utilizzata quando un sottoalbero destro diventa troppo alto.
-- Rotazione Destra (Right Rotation):
-  - Utilizzata quando un sottoalbero sinistro diventa troppo alto.
-- Rotazione Sinistra-Destra (Left-Right Rotation):
-  - Utilizzata quando un sottoalbero sinistro del nodo destro è sbilanciato.
-- Rotazione Destra-Sinistra (Right-Left Rotation):
-  - Utilizzata quando un sottoalbero destro del nodo sinistro è sbilanciato.
+- Rotazione Sinistra (Left Rotation): Utilizzata quando un sottoalbero destro diventa troppo alto.
+- Rotazione Destra (Right Rotation): Utilizzata quando un sottoalbero sinistro diventa troppo alto.
+- Rotazione Sinistra-Destra (Left-Right Rotation): Utilizzata quando un sottoalbero sinistro del nodo destro è sbilanciato.
+- Rotazione Destra-Sinistra (Right-Left Rotation): Utilizzata quando un sottoalbero destro del nodo sinistro è sbilanciato.
 
 EFFICIENZA:
 - Le operazioni di ricerca, inserimento e rimozione hanno complessità temporale 𝑂(log 𝑛), grazie alla struttura bilanciata.
@@ -56,7 +47,7 @@ VANTAGGI DELL'ALBERO AVL:
 OPERAZIONI AUSILIARIE:
 - getMin(): Restituisce la chiave minima nell'albero.
 - getMax(): Restituisce la chiave massima nell'albero.
-- isBalanced(): Verifica se l'albero soddisfa la proprietà di bilanciamento.
+- isBalance(): Verifica se l'albero soddisfa la proprietà di bilanciamento.
 
 APPLICAZIONI:
 Gli alberi AVL sono utilizzati in contesti dove è richiesto un accesso rapido ai dati e un aggiornamento frequente, ad esempio:
@@ -80,17 +71,21 @@ class Node {
 }
 
 class AVLTree {
-    // Funzione per ottenere l'altezza di un nodo
-    getHeight(node) {
+    constructor() {
+        this.root = null;
+    }
+
+    // getAltezza(node) --> Funzione per ottenere l'altezza di un nodo
+    getAltezza(node) {
         return node ? node.height : 0;
     }
 
-    // Funzione per ottenere il fattore di bilanciamento
-    getBalance(node) {
-        return node ? this.getHeight(node.left) - this.getHeight(node.right) : 0;
+    // isBalance(node) --> Funzione per ottenere il fattore di bilanciamento
+    isBalance(node) {
+        return node ? this.getAltezza(node.left) - this.getAltezza(node.right) : 0;
     }
 
-    // Rotazione a destra
+    // rotateRight(z) --> Rotazione a destra
     rotateRight(z) {
         let y = z.left;
         let T3 = y.right;
@@ -98,13 +93,13 @@ class AVLTree {
         y.right = z;
         z.left = T3;
 
-        z.height = 1 + Math.max(this.getHeight(z.left), this.getHeight(z.right));
-        y.height = 1 + Math.max(this.getHeight(y.left), this.getHeight(y.right));
+        z.height = 1 + Math.max(this.getAltezza(z.left), this.getAltezza(z.right));
+        y.height = 1 + Math.max(this.getAltezza(y.left), this.getAltezza(y.right));
 
         return y;
     }
 
-    // Rotazione a sinistra
+    // rotateLeft(z) --> Rotazione a sinistra
     rotateLeft(z) {
         let y = z.right;
         let T2 = y.left;
@@ -112,93 +107,198 @@ class AVLTree {
         y.left = z;
         z.right = T2;
 
-        z.height = 1 + Math.max(this.getHeight(z.left), this.getHeight(z.right));
-        y.height = 1 + Math.max(this.getHeight(y.left), this.getHeight(y.right));
+        z.height = 1 + Math.max(this.getAltezza(z.left), this.getAltezza(z.right));
+        y.height = 1 + Math.max(this.getAltezza(y.left), this.getAltezza(y.right));
 
         return y;
     }
 
-    // Inserimento di un nodo
-    insert(root, key) {
+    // inserisci(node, key) --> funzione asuliaria che inserisce un nodo
+    inserisci(node, key) {
         // Passo base: inserisci il nodo come in un albero binario di ricerca
-        if (!root) {
+        if (!node) {
             return new Node(key);
-        } else if (key < root.key) {
-            root.left = this.insert(root.left, key);
+        }
+
+        if (key < node.key) {
+            node.left = this.inserisci(node.left, key);
+        } else if (key > node.key) {
+            node.right = this.inserisci(node.right, key);
         } else {
-            root.right = this.insert(root.right, key);
+            return node; // Chiavi duplicate non sono permesse
         }
 
         // Aggiorna l'altezza del nodo corrente
-        root.height = 1 + Math.max(this.getHeight(root.left), this.getHeight(root.right));
+        node.height = 1 + Math.max(this.getAltezza(node.left), this.getAltezza(node.right));
 
         // Ottieni il fattore di bilanciamento
-        const balance = this.getBalance(root);
+        const balance = this.isBalance(node);
 
         // Rotazioni per bilanciare l'albero
         // Caso sinistra-sinistra
-        if (balance > 1 && key < root.left.key) {
-            return this.rotateRight(root);
+        if (balance > 1 && key < node.left.key) {
+            return this.rotateRight(node);
         }
 
         // Caso destra-destra
-        if (balance < -1 && key > root.right.key) {
-            return this.rotateLeft(root);
+        if (balance < -1 && key > node.right.key) {
+            return this.rotateLeft(node);
         }
 
         // Caso sinistra-destra
-        if (balance > 1 && key > root.left.key) {
-            root.left = this.rotateLeft(root.left);
-            return this.rotateRight(root);
+        if (balance > 1 && key > node.left.key) {
+            node.left = this.rotateLeft(node.left);
+            return this.rotateRight(node);
         }
 
         // Caso destra-sinistra
-        if (balance < -1 && key < root.right.key) {
-            root.right = this.rotateRight(root.right);
-            return this.rotateLeft(root);
+        if (balance < -1 && key < node.right.key) {
+            node.right = this.rotateRight(node.right);
+            return this.rotateLeft(node);
         }
 
-        return root;
+        return node;
     }
 
-    // Funzione per stampare l'albero (in-order traversal)
-    inOrderTraversal(root) {
-        if (root) {
-            this.inOrderTraversal(root.left);
-            console.log(root.key);
-            this.inOrderTraversal(root.right);
+    // inserisciKey(key) --> Wrapper per inserire un valore nell'albero
+    inserisciKey(key) {
+        this.root = this.inserisci(this.root, key);
+    }
+
+    // visitaInOrdine(node = this.root) --> Visita in ordine
+    visitaInOrdine(node = this.root) {
+        if (node) {
+            let visitedNode = [];
+            this.auxVisitaInOrdine(node, visitedNode);
+            console.log(visitedNode);
         }
     }
 
-    // Funzione per trovare un nodo
-    find(root, key) {
-        if (!root) {
-            return null;
-        } else if (key === root.key) {
-            return root;
-        } else if (key < root.key) {
-            return this.find(root.left, key);
+    //auxVisitaInOrdine --> dato un nodo, si va a popolare l'array visitedNode con ogni nodo vistato
+    auxVisitaInOrdine(node, visitedNode){
+        if (node) {
+            this.auxVisitaInOrdine(node.left, visitedNode);
+            visitedNode.push(node.key);
+            this.auxVisitaInOrdine(node.right, visitedNode);
+        }
+    }
+
+    // cerca(node, key) --> funzione ausiliara che cerca un nodo con una chiave specifica
+    cerca(node, key) {
+        if (!node || node.key === key) {
+            return node;
+        }
+
+        if (key < node.key) {
+            return this.cerca(node.left, key);
+        }
+
+        return this.cerca(node.right, key);
+    }
+
+    // cercaKey(key) --> Wrapper per la ricerca
+    cercaKey(key) {
+        return this.cerca(this.root, key);
+    }
+
+    // getMinNode(node) --> funzione ausliaria che trova il nodo con il valore minimo
+    getMinNode(node) {
+        while (node.left) {
+            node = node.left;
+        }
+        return node;
+    }
+
+    // getMin() --> Restituisce il valore minimo nell'albero
+    getMin() {
+        if (!this.root) return null;
+        return this.getMinNode(this.root).key;
+    }
+
+    // getMaxNode(node) --> Funzione ausiliaria che trova il nodo con il valore massimo
+    getMaxNode(node) {
+        while (node.right) {
+            node = node.right;
+        }
+        return node;
+    }
+
+    // getMax() --> Restituisce il valore massimo nell'albero
+    getMax() {
+        if (!this.root) return null;
+        return this.getMaxNode(this.root).key;
+    }
+
+    // elimina(node, key) --> funzione ausiliaria per eliminazione di un nodo
+    elimina(node, key) {
+        if (!node) return node;
+
+        if (key < node.key) {
+            node.left = this.elimina(node.left, key);
+        } else if (key > node.key) {
+            node.right = this.elimina(node.right, key);
         } else {
-            return this.find(root.right, key);
+            // Nodo con uno o nessun figlio
+            if (!node.left || !node.right) {
+                node = node.left || node.right;
+            } else {
+                // Nodo con due figli
+                const temp = this.getMinNode(node.right);
+                node.key = temp.key;
+                node.right = this.elimina(node.right, temp.key);
+            }
         }
+
+        if (!node) return node;
+
+        // Aggiorna altezza del nodo corrente
+        node.height = 1 + Math.max(this.getAltezza(node.left), this.getAltezza(node.right));
+
+        // Bilanciamento
+        const balance = this.isBalance(node);
+
+        // Rotazioni per bilanciare l'albero
+        if (balance > 1 && this.isBalance(node.left) >= 0) {
+            return this.rotateRight(node);
+        }
+
+        if (balance > 1 && this.isBalance(node.left) < 0) {
+            node.left = this.rotateLeft(node.left);
+            return this.rotateRight(node);
+        }
+
+        if (balance < -1 && this.isBalance(node.right) <= 0) {
+            return this.rotateLeft(node);
+        }
+
+        if (balance < -1 && this.isBalance(node.right) > 0) {
+            node.right = this.rotateRight(node.right);
+            return this.rotateLeft(node);
+        }
+
+        return node;
+    }
+
+    // eliminaKey(key) --> Wrapper per eliminare un nodo
+    eliminaKey(key) {
+        this.root = this.elimina(this.root, key);
     }
 }
 
-// Esempio di utilizzo
-const avlTree = new AVLTree();
-let root = null;
+// test della struttura dati
+const tree = new AVLTree();
+tree.inserisciKey(10);
+tree.inserisciKey(20);
+tree.inserisciKey(5);
+tree.inserisciKey(6);
+tree.inserisciKey(8);
 
-// Inserimento di nodi
-const elements = [10, 20, 30, 40, 50, 25];
-elements.forEach((elem) => {
-    root = avlTree.insert(root, elem);
-});
+console.log("Visita in ordine:");
+tree.visitaInOrdine();
 
-// Stampa dell'albero in ordine
-console.log("In-order traversal dell'albero AVL:");
-avlTree.inOrderTraversal(root);
+console.log("Min:", tree.getMin());
+console.log("Max:", tree.getMax());
 
-// Ricerca di un nodo
-const keyToFind = 25;
-const foundNode = avlTree.find(root, keyToFind);
-console.log(foundNode ? `Nodo trovato: ${foundNode.key}` : "Nodo non trovato");
+tree.eliminaKey(10);
+console.log("Visita in ordine dopo eliminazione:");
+tree.visitaInOrdine();

@@ -23,5 +23,8 @@ function linearSearch(array, num) {
 }
 
 let numbers = [1, 3, 5, 7, 8, 9];
-console.log(linearSearch(numbers, 8)); // -> 4
-console.log(linearSearch(numbers, 28)); // -> -1 
+console.log("visualizza array:", numbers);
+console.log("ricerca all'interno dell'array dell'elemento 8:",
+    linearSearch(numbers, 8) !== -1 ? linearSearch(numbers, 8) : -1); 
+console.log("ricerca all'interno dell'array dell'elemento 28:", 
+    linearSearch(numbers, 28) !== -1 ? linearSearch(numbers, 28) : -1);  

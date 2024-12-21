@@ -41,4 +41,6 @@ function bblSort(arr) {
 
 // Test sort
 const arr = [234, 43, 55, 63, 5, 6, 235, 547];
-console.log(bblSort(arr));
+console.log("pre ordinamento:", arr);
+bblSort(arr)
+console.log("post ordinamento:", arr);

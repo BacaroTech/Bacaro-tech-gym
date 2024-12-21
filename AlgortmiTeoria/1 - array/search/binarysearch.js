@@ -46,5 +46,8 @@ function recursiveFunction (arr, x, start, end) {
 }
 
 let arr = [1, 3, 5, 7, 8, 9];
-console.log(recursiveFunction(arr, 5, 0, arr.length - 1)); // -> 2
-console.log(recursiveFunction(arr, 12, 0, arr.length - 1)); // -> -1
+console.log("visualizza array:", arr);
+console.log("ricerca all'interno dell'array dell'elemento 5 con ricerca binaria:", 
+  recursiveFunction(arr, 5, 0, arr.length - 1) !== -1 ? recursiveFunction(arr, 5, 0, arr.length - 1) !== -1 : "non trovato"  ); 
+console.log("ricerca all'interno dell'array dell'elemento 12 con ricerca binaria:", 
+  recursiveFunction(arr, 12, 0, arr.length - 1) !== -1 ? recursiveFunction(arr, 12, 0, arr.length - 1) !== -1 : "non trovato" ); 

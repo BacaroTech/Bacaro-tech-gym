@@ -37,13 +37,15 @@ class Queue {
     enqueue(item) {
         this.items[this.backIndex] = item
         this.backIndex++
-        return item + ' inserted'
+        return item + ' inserito'
     }
     
     // dequeue() --> rimozione in testa, ritornando l'elemento rimosso => O(1)
     dequeue() {
-        if(this.isEmpty)
-            console.log('coda vuota') 
+        if(this.isEmpty()){
+            console.log('la coda è vuota') 
+            return undefined
+        }
         const item = this.items[this.frontIndex]
         delete this.items[this.frontIndex]
         this.frontIndex++
@@ -57,21 +59,20 @@ class Queue {
 
     // isEmpty() --> restituisce true se lo stack è vuoto, false altrimenti => O(1)
     isEmpty() {
-        return this.items.frontIndex === this.items.backIndex
+        return this.frontIndex === this.backIndex
     }
     
     // printStack() --> stampa la struttura dati partendo dalla testa => O(n)
     printQueue() {
-        let str = ""
+        let queueList = [];
         if (this.isEmpty()) {
-            console.log('La coda è vuota')
-            return
+            return 'la coda è vuota'
         }
 
         for (let i = this.frontIndex; i < this.backIndex; i++) {
-            str += this.items[i] + " "
+            queueList.push(this.items[i]);
         }
-        return str
+        return queueList;
     }
 }
 
@@ -81,6 +82,6 @@ console.log(queue.enqueue(7))
 console.log(queue.enqueue(2))
 console.log(queue.enqueue(6))
 console.log(queue.enqueue(4))
-console.log(queue.dequeue())
-console.log(queue.peek())
-console.log(queue.printQueue());
+console.log("Primo elemento rimosso", queue.dequeue())
+console.log("Elemento in testa", queue.peek())
+console.log("Stampa di tutti gli elementi della coda", queue.printQueue());

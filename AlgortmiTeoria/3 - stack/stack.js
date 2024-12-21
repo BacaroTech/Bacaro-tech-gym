@@ -54,21 +54,21 @@ class Stack {
 
     // printStack() --> stampa la struttura dati partendo dalla testa => O(n)
     printStack() {
-        let str = "";
+        let nodeVisited = [];
         for (let i = 0; i < this.items.length; i++)
-            str += this.items[i] + " ";
-        return str;
+            nodeVisited.push(this.items[i]);
+        return nodeVisited;
     }
 }
 
 // test della struttura dati 
 let stack = new Stack();
-console.log(stack.isEmpty()); 
-console.log(stack.pop());
+console.log("verifica se lo stack è vuoto:", stack.isEmpty()); 
+console.log("eliminazione elemento:", stack.pop());
 stack.push(10);
 stack.push(20);
 stack.push(30);
-console.log(stack.printStack());
-console.log(stack.peek());
-console.log(stack.pop());
-console.log(stack.printStack());
+console.log("stampa tutti gli elementi dello stack:", stack.printStack());
+console.log("osservare l'elemento in testa:", stack.peek());
+console.log("rimozione dell'elemento in testa:", stack.pop());
+console.log("stampa di tutti gli elementi dopo aver rimosso la testa:", stack.printStack());

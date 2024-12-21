@@ -40,4 +40,5 @@ function mergeSort(arr) {
 
 //Test sort
 const arr = [3, 5, 8, 5, 99, 1];
-console.log(mergeSort(arr));
+console.log("pre ordinamento:", arr);
+console.log("post ordinamento:", mergeSort(arr));

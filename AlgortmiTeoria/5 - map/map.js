@@ -41,11 +41,10 @@ class MyMap {
     // set(key, value) --> Aggiunge una coppia chiave-valore
     set(key, value) {
         const index = this.hash(key) // Calcola l'indice della chiave
-        console.log(index)
         if (!this.items[index]) {
             this.items[index] = { key, value } // Crea una lista se non esiste già
             this.itemsInsert++
-            console.log('Chiave inserita correttamente')
+            console.log('Chiave "' + key + '" inserita correttamente')
         } else {
             console.log('La chiave è gia presente')
         }
@@ -118,13 +117,13 @@ myMap.set("age", 25)
 myMap.set("country", "Italy")
 myMap.printAll()
 
-console.log(myMap.get("name"))  
-console.log(myMap.has("age"))   
-console.log(myMap.size())       
+console.log("Ricerca all'interno della mappa del campo name:", myMap.get("name"))  
+console.log("Ricerca all'interno della mappa del campo age:", myMap.has("age"))   
+console.log("Numero di elementi della mappa:", myMap.size())       
 
 myMap.delete("country")
 myMap.printAll()
-console.log(myMap.has("country"))   
+console.log("Ricerca all'interno della mappa del campo country dopo la sua rimozione:", myMap.has("country"))   
 
 myMap.clear()
-console.log(myMap.size())           
+console.log("Numero di elementi della mappa dopo il clear:", myMap.size())           

@@ -37,4 +37,6 @@ function insertionSort(arr, n)
   
 // Test sort
 const arr = [12, 11, 13, 5, 6 ];  
-console.log(insertionSort(arr, arr.length));  
+console.log("pre ordinamento:", arr);
+console.log("post ordinamento:", insertionSort(arr, arr.length));
+

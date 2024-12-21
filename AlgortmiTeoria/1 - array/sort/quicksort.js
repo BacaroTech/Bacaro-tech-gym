@@ -41,5 +41,6 @@ function quickSort(arr, low, high) {
   
 // Test sort
 const arr = [10, 80, 30, 90, 40];   
+console.log("pre ordinamento:", arr);
 quickSort(arr, 0, arr.length - 1)
-console.log(arr);
+console.log("post ordinamento:", arr);

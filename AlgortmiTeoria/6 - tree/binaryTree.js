@@ -233,7 +233,7 @@ console.log("Ricerca di valori:");
 console.log("Cerca 40:", albero.cerca(40)); // true
 console.log("Cerca 100:", albero.cerca(100)); // false
 
-console.log("Eliminazione di un nodo (30)...");
+console.log("Eliminazione di un nodo (30)");
 albero.elimina(30);
 console.log("Visita in ordine dopo eliminazione:", albero.visitaInOrdine());
 

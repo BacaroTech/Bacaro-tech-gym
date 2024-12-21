@@ -124,7 +124,7 @@ class LinkedList {
                 iter = iter.next;
             }
         }
-        console.log("lista:", listToPrint);
+        console.log("visualizza tutta la lista:", listToPrint);
     }
 }
 
@@ -134,6 +134,6 @@ let node2 = new ListNode(5);
 let list = new LinkedList(node1)
 
 list.add(node2);
-console.log(list.at(0));
-console.log(list.size());
+console.log("elemento in posizione 0:", list.at(0));
+console.log("grandezza della lista:", list.size());
 list.print();

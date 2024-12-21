@@ -36,4 +36,5 @@ function selectionSort(inputArr) {
 
 // Test sort
 let arr = [234, 43, 55, 63, 5, 6, 235, 547];
-console.log(selectionSort(arr));
+console.log("pre ordinamento:", arr);
+console.log("post ordinamento:", selectionSort(arr));

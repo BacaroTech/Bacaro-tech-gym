@@ -168,6 +168,23 @@ class AlberoKArio {
         };
         return conta(this.radice);
     }
+
+    // visitaInProfondita --> Effettua una visita in profondità sull'albero
+    visitaInProfondita() {
+        const risultato = [];
+
+        // Funzione di supporto per la DFS
+        const dfs = (nodo) => {
+            if (!nodo) return;
+            risultato.push(nodo.valore); // Aggiunge il valore del nodo visitato
+            for (const figlio of nodo.figli) {
+                dfs(figlio); // Visita i figli ricorsivamente
+            }
+        };
+
+        dfs(this.radice); // Avvia la DFS dalla radice
+        return risultato;
+    }
 }
 
 // test della struttura dati
@@ -187,7 +204,7 @@ console.log("Ricerca di valori:");
 console.log("Cerca 6:", albero.cerca(6)); // true
 console.log("Cerca 10:", albero.cerca(10)); // false
 
-console.log("Eliminazione di un nodo (3)...");
+console.log("Eliminazione di un nodo (3)");
 albero.elimina(3);
 console.log("Visita in profondità dopo eliminazione:", albero.visitaInProfondita());
 
