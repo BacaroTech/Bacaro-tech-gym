@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 select distinct product_id, 10 as price
 from  products
 group by product_id

@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 select w1.id as Id
 from Weather w1
 where w1.temperature > (

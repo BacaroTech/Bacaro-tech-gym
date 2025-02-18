@@ -1,4 +1,3 @@
-# Write your MySQL query statement below
 select class
 from (
   select c1.class, count(*) as countMember
